@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
+
+@font-face {
+  font-family: 'Trade Gothic';
+  src: url('../fonts/trade-gothic/TradeGothicLTStd-Bold.eot');
+  src: url('../fonts/trade-gothic/TradeGothicLTStd-Bold.woff2') format('woff2'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.woff') format('woff'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.ttf') format('truetype'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.svg#TradeGothicLTStd-Bold') format('svg'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.eot?#iefix') format('embedded-opentype');
+}

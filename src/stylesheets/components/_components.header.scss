@@ -1,0 +1,59 @@
+.header {
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  margin: 0 24px;
+
+	.site-logo {
+    margin: auto 0;
+    line-height: 1;
+    font-size: 2.6rem;
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	.toast {
+		display: block;
+
+		width: 20px;
+		height: 20px;
+		background: red;
+
+		@media (min-width: $medium) {
+			display: none;
+		}
+	}
+
+	.main-menu {
+		display: none;
+
+		@media (min-width: $medium) {
+			display: block;
+		}
+
+		ul {
+	    display: flex;
+    	justify-content: flex-end;
+    	align-items: center;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				margin: 0;
+				margin-left: 30px;
+				margin-bottom: 8px;
+
+				a {
+					padding: 2px 0 2px 2px;
+					font-size: 1.4rem;
+					text-transform: uppercase;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

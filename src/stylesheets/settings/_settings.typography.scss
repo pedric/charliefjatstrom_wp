@@ -1,0 +1,40 @@
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+@font-face {
+  font-family: 'Trade Gothic';
+  src: url('../fonts/trade-gothic/TradeGothicLTStd-Bold.eot');
+  src: url('../fonts/trade-gothic/TradeGothicLTStd-Bold.woff2') format('woff2'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.woff') format('woff'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.ttf') format('truetype'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.svg#TradeGothicLTStd-Bold') format('svg'),
+    url('../fonts/trade-gothic/TradeGothicLTStd-Bold.eot?#iefix') format('embedded-opentype');
+}
+
+
+/* ==========================================================================
+   Typography settings
+   ========================================================================== */
+
+/* Fonts */
+$font-primary: 'Trade Gothic', 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif !default;
+$font-secondary: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif !default;
+$font-mono: 'Courier New', courier, serif !default;
+
+/* Size */
+$global-font-size: 1rem !default;
+$font-size-largest: 2.369rem !default;
+$font-size-larger: 1.777rem !default;
+$font-size-large: 1.333rem !default;
+$font-size-medium: 1.25rem !default;
+$font-size-small: 0.8889rem !default;
+$font-size-smaller: 0.7778rem !default;
+$font-size-smallest: 0.667rem !default;
+$font-size-menu-large: 1.5rem !default;
+
+/* Line height */
+$global-line-height: 1.5 !default;
+$narrow-line-height: 1.2 !default;
