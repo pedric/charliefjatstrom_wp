@@ -2,15 +2,96 @@
 
 {% block content %}
 	<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-		<img src="{{ post.thumbnail.src|resize(1200, 300) }}">
+		
+		{# <img src="{{ post.thumbnail.src|resize(1200, 300) }}"> #}
 		<section class="article-content">
 			<h1 class="article-h1">{{ post.title }}</h1>
-			<p class="blog-author">
-				<span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span> {{ post.date }}
-			</p>
+			<p  class="article-meta">{{ post.get_field('year') }}</p>
 			<div class="article-body">
 				{{post.content}}
 			</div>
+
+			<!-- Images used to open the lightbox -->
+			<div class="row">
+				{% set counter = 0 %}
+				{% for item in gallery %}
+					{% set counter = counter + 1 %}
+					<div class="column">
+				    <img src="{{Image(item.sizes.medium).src}}" onclick="openModal();currentSlide({{counter}})" alt="{{item.alt}}" class="hover-shadow">
+				  </div>
+				{% endfor %}
+			</div>
+
+			<!-- The Modal/Lightbox -->
+			<div id="myModal" class="modal">
+			  <span class="close cursor" onclick="closeModal()">&times;</span>
+			  <div class="modal-content">
+
+			  	{% set counter = 0 %}
+					{% for item in gallery %}
+						{% set counter = counter + 1 %}
+						<div class="mySlides">
+				      <div class="numbertext">{{ counter }} / {{ gallery|length }}</div>
+				      <img src="{{Image(item.sizes.large).src}}" alt="{{item.alt}}" style="width:100%" onclick="plusSlides(1)">
+				      <div>
+				      	<h3>{{ item.title }}</h3>
+				      	<p>{{ item.caption }}</p>
+				      	<p>{{ item.description }}</p>
+				      </div>
+				    </div>
+					{% endfor %}
+
+			    <!-- Next/previous controls -->
+			    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+				</div>
+			</div>
+
+			<script>
+			// Open the Modal
+			function openModal() {
+			  document.getElementById('myModal').style.display = "block";
+			}
+
+			// Close the Modal
+			function closeModal() {
+			  document.getElementById('myModal').style.display = "none";
+			}
+
+			var slideIndex = 1;
+			showSlides(slideIndex);
+
+			// Next/previous controls
+			function plusSlides(n) {
+			  showSlides(slideIndex += n);
+			}
+
+			// Thumbnail image controls
+			function currentSlide(n) {
+			  showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+			  var i;
+			  var slides = document.getElementsByClassName("mySlides");
+			  var dots = document.getElementsByClassName("demo");
+			  var captionText = document.getElementById("caption");
+			  if (n > slides.length) {slideIndex = 1}
+			  if (n < 1) {slideIndex = slides.length}
+			  for (i = 0; i < slides.length; i++) {
+			    slides[i].style.display = "none";
+			  }
+			  for (i = 0; i < dots.length; i++) {
+			    dots[i].className = dots[i].className.replace(" active", "");
+			  }
+			  slides[slideIndex-1].style.display = "block";
+			  dots[slideIndex-1].className += " active";
+			  captionText.innerHTML = dots[slideIndex-1].alt;
+			}
+			</script>
+
 		</section>
 	</article>
+		
 {% endblock %}

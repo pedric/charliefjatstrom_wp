@@ -1,0 +1,18 @@
+.tease {
+	position: relative;
+	display: flex;
+
+	.tease__content-wrapper {
+		position: relative;
+		width: 100%;
+		margin: 8px;
+	}
+
+	.tease__img {
+		position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+	}
+}

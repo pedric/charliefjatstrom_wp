@@ -13,6 +13,9 @@ $context = Timber::get_context();
 $post = Timber::query_post();
 $context['post'] = $post;
 
+$gallery = get_field('image_gallery');
+$context['gallery'] = $gallery;
+
 if ( post_password_required( $post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );
 } else {

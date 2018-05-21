@@ -19,4 +19,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="author" href="{{ site.theme.link }}/humans.txt" />
     <link rel="pingback" href="{{ site.pingback_url }}" />
+    {# Open graph #}
+    {% if post.title %}<meta property="og:title" content="{{post.title}}" />{% endif %}
+    {% if post.get_field('summary') %}<meta property="og:description" content="{{post.get_field('summary')}}" />
+    {% else %}<meta property="og:description" content="{{post.content}}" />{% endif %}
+    {% if post.thumbnail.src %}<meta property="og:image" content="{{post.thumbnail.src}}" />{% endif %}
+    {# !end.Open graph#}
     {{function('wp_head')}}
