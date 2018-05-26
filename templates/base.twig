@@ -6,8 +6,8 @@
 	</head>
 {% endblock %}
 
-	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header" >
+	<body class="{{body_class}}{% if hero %} start-page-hero{% endif %}" data-template="base.twig">
+		<header class="header" data-module="menu">
 			{% block header %}
 				<h1 class="site-logo" role="banner">
 					<a href="{{site.url}}" rel="home">{{site.name}}</a>
@@ -15,23 +15,22 @@
 				<nav id="nav-main" class="main-menu" role="navigation">
 					{% include "menu.twig" with { 'menu': menu.get_items } %}
 				</nav><!-- #nav -->
-
 				<div class="toast"></div>
 			{% endblock %}
 		</header>
 
 		<section id="content" role="main" class="content-wrapper">
-			{% if title %}<h1>{{title}}</h1>{% endif %}
+			{# {% if title %}<h1>{{title}}</h1>{% endif %} #}
 			<div class="wrapper {{sidebar_class}}">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
 			</div>
-			{% if sidebar %}
+			{# {% if sidebar %}
 				<aside class="layout-sidebar">
 					{{sidebar}}
 				</aside>
-			{% endif %}
+			{% endif %} #}
 		</section>
 
 {# 		{% block footer %}

@@ -16,8 +16,10 @@
 				{% set counter = 0 %}
 				{% for item in gallery %}
 					{% set counter = counter + 1 %}
-					<div class="column">
-				    <img src="{{Image(item.sizes.medium).src}}" onclick="openModal();currentSlide({{counter}})" alt="{{item.alt}}" class="hover-shadow">
+					<div class="grid-col grid-col-25">
+						<div class="lightbox-spacer">
+				    	<img src="{{Image(item.sizes.medium).src}}" onclick="openModal();currentSlide({{counter}})" alt="{{item.alt}}" class="hover-shadow">
+				  	</div>
 				  </div>
 				{% endfor %}
 			</div>
@@ -31,12 +33,12 @@
 					{% for item in gallery %}
 						{% set counter = counter + 1 %}
 						<div class="mySlides">
-				      <div class="numbertext">{{ counter }} / {{ gallery|length }}</div>
 				      <img src="{{Image(item.sizes.large).src}}" alt="{{item.alt}}" style="width:100%" onclick="plusSlides(1)">
-				      <div>
-				      	<h3>{{ item.title }}</h3>
-				      	<p>{{ item.caption }}</p>
-				      	<p>{{ item.description }}</p>
+				      <div class="slides-caption">
+				      	{# <h3>{{ item.title }}</h3> #}
+				      	<p>{{ counter }} / {{ gallery|length }}</p>
+				      	{% if item.caption %}<p>{{ item.caption }}</p>{% endif %}
+				      	{% if item.description %}<p>{{ item.description }}</p>{% endif %}
 				      </div>
 				    </div>
 					{% endfor %}

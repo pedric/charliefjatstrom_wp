@@ -1,18 +1,67 @@
 .tease {
 	position: relative;
 	display: flex;
+	padding: 8px;
+	overflow: hidden;
+	margin-bottom: 16px;
+
+	@media (min-width: $medium) { margin-bottom: 0; }
+
+	&::before {
+	  content: '';
+	  padding-top: 66.66%;
+	  float: left;
+	  @media (min-width: $medium) { padding-top: 120%; }
+	}
+
+	&::after {
+	  content: '';
+	  display: block;
+	  clear: both;
+	}
+
+	&:hover {
+		.tease__img { filter: grayscale(0%); }
+		h2, p { text-decoration: underline; }
+	}
 
 	.tease__content-wrapper {
 		position: relative;
 		width: 100%;
-		margin: 8px;
+		// margin: 8px;
 	}
 
 	.tease__img {
 		position: absolute;
-    top: 0;
+    top: 50%;
     left: 0;
+    transform: translateY(-50%);
     width: 100%;
     z-index: -1;
+    filter: grayscale(100%);
+    transition: filter 0.2s ease-in-out;
+	}
+
+	a { text-decoration: none; }
+
+	h2 {
+		color: #fff;
+		font-size: 5.6rem;
+    line-height: 0.7;
+    margin: 56px 8px 0 16px;
+
+		@media (min-width: $medium) {
+			font-size: 7	.0rem;
+		}
+	}
+
+	p {
+		margin: 8px 8px 0 16px;
+		font-size: 1.4rem;
+		color: #fff;
+
+		@media (min-width: $medium) {
+			max-width: 50%;
+		}
 	}
 }

@@ -1,0 +1,51 @@
+.wall {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 0 -4px;
+
+  .wall__item {
+  	flex-basis: 50%;
+  	max-width: 50%;
+  	padding: 4px;
+
+  	@media (min-width:400px) {
+  		flex-basis: 33.333%;
+  		max-width: 33.333%;
+  	}
+
+  	@media (min-width:600px) {
+  		flex-basis: 25%;
+  		max-width: 25%;
+  	}
+
+  	@media (min-width:800px) {
+  		flex-basis: 16.6664%;
+  		max-width: 16.6664%;
+  	}
+
+  	@media (min-width:1000px) {
+  		flex-basis: 10%;
+  		max-width: 10%;
+  	}
+
+  	// 1x1 ratio
+  	&::before {
+		  content: '';
+		  padding-top: 100%;
+		  float: left;
+		}
+
+		&::after {
+		  content: '';
+		  display: block;
+		  clear: both;
+		}
+
+  	.wall__img {
+  		width: 100%;
+	    object-fit: cover;
+	    object-position: center;
+  	}
+  }
+}

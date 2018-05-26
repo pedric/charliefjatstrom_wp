@@ -1,5 +1,47 @@
-.row > .column {
-  padding: 0 8px;
+.row > .grid-col {
+
+  &:hover {
+    cursor: pointer;
+    // img {
+    //   filter: grayscale(0%);
+    // }
+  }
+  
+  .lightbox-spacer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    width: 98%;
+    height: 98%;
+  }
+
+  position: relative;
+  padding: 8px;
+  overflow: hidden;
+
+  // 1x1 ratio
+  &::before {
+    content: '';
+    padding-top: 100%;
+    float: left;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    // filter: grayscale(100%);
+    // transition: filter 0.2s ease-in-out;
+  }
 }
 
 .row:after {
@@ -19,28 +61,36 @@
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 10%;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: black;
+  background-color: rgba(#fff, 0.9);
+
+  @media (min-width:$small) {
+    padding-top: 5%;
+  }
 }
 
 /* Modal Content */
 .modal-content {
   position: relative;
-  background-color: #fefefe;
   margin: auto;
   padding: 0;
-  width: 90%;
+  width: 100%;
+  height: 90%;
   max-width: 1200px;
+
+  @media (min-width:$small) {
+    width: 90%;
+  }
 }
 
 /* The Close Button */
 .close {
-  color: white;
+  // color: white;
   position: absolute;
   top: 10px;
   right: 25px;
@@ -50,7 +100,7 @@
 
 .close:hover,
 .close:focus {
-  color: #999;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
 }
@@ -58,6 +108,14 @@
 /* Hide the slides by default */
 .mySlides {
   display: none;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: contain;
+  }
 }
 
 /* Next & previous buttons */
@@ -69,7 +127,7 @@
   width: auto;
   padding: 16px;
   margin-top: -50px;
-  color: white;
+  // color: white;
   font-weight: bold;
   font-size: 20px;
   transition: 0.6s ease;
@@ -87,12 +145,12 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  // background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Number text (1/3 etc) */
 .numbertext {
-  color: #f2f2f2;
+  // color: #f2f2f2;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
@@ -100,6 +158,22 @@
 }
 
 /* Caption text */
+
+.slides-caption {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 110%);
+  width: 90%;
+  font-size: 12px;
+  padding: 16px;
+  text-align: center;
+
+  p {
+    margin-bottom: 4px;
+  }
+}
+
 .caption-container {
   text-align: center;
   background-color: black;

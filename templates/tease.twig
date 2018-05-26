@@ -6,7 +6,7 @@
 					<img class="tease__img" src="{{ Image(post.thumbnail).src }}" />
 				{% endif %}
 				<h2 class="h2">{{post.title}}</h2>
-				<p>{{post.preview}}</p>
+				<p>{{post.get_field('summary')}}</p>
 			</a>
 		</div>
 	{% endblock %}
